@@ -20,7 +20,7 @@ cpu_architecture="$(parse_helper "Architecture")"
 cpu_model="$(parse_helper "Model name:")"
 cpu_mhz="$(parse_helper "CPU MHz:")"
 L2_cache=$(echo "$lscpu_out"  | egrep "L2 cache:" | awk '{print $3}' | sed s'/K//' | xargs)
-total_mem=$(vmstat --unit M | tail -1 | awk '{print $4}')
+total_mem=$(cat /proc/meminfo | egrep "^MemTotal:" | awk '{print $2}')
 timestamp=$(date --rfc-3339=seconds | awk -F+ '{print $1}' | xargs)
 
 #constuct insert statement
