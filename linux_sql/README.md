@@ -5,6 +5,7 @@ The Cluster Monitoring Solution is used to collect the hardware specifications o
 1) Cluster Diagram:
 
 ![my image](./assets/diagram.png)
+
 2) Tables
   All tables are created under `host_agent` database
   - `host_info`  table contains hardware specifications data.
