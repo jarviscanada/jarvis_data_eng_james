@@ -17,7 +17,7 @@ SELECT
   usage.host_id,
   info.hostname AS host_name,
   info.total_mem AS total_memory,
-  AVG((info.total_mem - usage.memory_free) / info.total_mem * 100)::INT AS used_memory_percentage
+  (AVG(info.total_mem - usage.memory_free * 1024) / info.total_mem *100)::INT AS used_memory_percentage
 FROM
   host_usage AS usage
   JOIN
