@@ -28,5 +28,5 @@ insert_statement="INSERT INTO host_info (hostname, cpu_number, cpu_architecture,
 echo $insert_statement
 
 #execute insert statement
-#export PGPASSWORD=$psql_password
-#psql -h $psql_host -p $psql_port -U $psql_user -d $db_name -c "$insert_statement"
+export PGPASSWORD=$psql_password
+psql -h $psql_host -p $psql_port -U $psql_user -d $db_name -c "$insert_statement"
