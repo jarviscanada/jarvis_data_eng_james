@@ -3,6 +3,7 @@ The Cluster Monitoring Solution is used to collect the hardware specifications o
 
 ## Architecture and Design
 1) Cluster Diagram:
+
 ![my image](./assets/diagram.png)
 2) Tables
   All tables are created under `host_agent` database
