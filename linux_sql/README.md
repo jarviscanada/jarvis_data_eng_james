@@ -16,15 +16,22 @@ The Cluster Monitoring Solution is used to collect the hardware specifications o
 
 ## Usage
 1) how to init database and tables (e.g. ddl.sql)
-`./psql_docker.sh start password` (start docker)
-`psql -h localhost -U postgres -W -f sql/ddl.sql` (create database and table)
+~~~
+./psql_docker.sh start password (start docker)
+psql -h localhost -U postgres -W -f sql/ddl.sql (create database and table)
+~~~
 2) `host_info.sh` usage
-`bash ./host_info.sh localhost 5432 host_agent postgres password`
+~~~
+bash ./host_info.sh localhost 5432 host_agent postgres password
+~~~
 3) `host_usage.sh` usage
-`bash ./host_usage.sh localhost 5432 host_agent postgres password`
+~~~
+bash ./host_usage.sh localhost 5432 host_agent postgres password
+~~~
 4) crontab setup
-`crontab -e`
-`* * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log`
-
+~~~
+crontab -e
+* * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log
+~~~
 ## Improvements
 1) handle hardware update
