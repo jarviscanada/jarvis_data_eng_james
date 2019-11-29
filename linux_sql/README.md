@@ -31,7 +31,7 @@ bash ./host_usage.sh localhost 5432 host_agent postgres password
 4) crontab setup
 ~~~
 crontab -e
-* * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log
+* * * * * bash /home/centos/dev/jarvis_data_eng_james/linux_sql/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log
 ~~~
 ## Improvements
 1) handle hardware update
