@@ -35,3 +35,5 @@ crontab -e
 ~~~
 ## Improvements
 1) handle hardware update
+2) Automate script to run all command
+3) Optimize architecture
