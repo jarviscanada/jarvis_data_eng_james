@@ -13,7 +13,7 @@ memory_free=$(vmstat --unit M | tail -1 | awk '{print $4}' | xargs)
 cpu_idel=$(vmstat -t | tail -1 | awk '{print $15}' | xargs)
 cpu_kernel=$(vmstat --unit M | tail -1 | awk '{print $14}' | xargs)
 disk_io=$(vmstat -d | tail -1 | awk '{print $10}' | xargs)
-disk_available=$(df -BM | head -2 | tail -1 | awk '{print $4}' | sed s/.$// | xargs)
+disk_available=$(df -BM | head -2 | tail -1 | awk '{print $4}' | sed 's/.$//' | xargs)
 timestamp=$(date --rfc-3339=seconds | awk -F+ '{print $1}' | xargs)
 
 #construct the insert statement
