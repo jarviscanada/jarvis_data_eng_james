@@ -2,13 +2,16 @@
 # script usage
 #./scripts/psql_docker.sh start|stop [db_password]
 
+action=$1
+password=$2
+
 if (($# > 2))
 then
     echo Too many arguments!
     exit 1
 fi
 
-case $1 in
+case $action in
     start)
           #check if password is provided
           if [ $# -ne 2 ]
