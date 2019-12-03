@@ -1,5 +1,11 @@
 #! /bin/bash
 
+if [ $# -ne 5 ]
+then
+    echo Invaild input.
+    exit 1
+fi
+
 #take command line argument and setup variable
 psql_host=$1
 psql_port=$2
