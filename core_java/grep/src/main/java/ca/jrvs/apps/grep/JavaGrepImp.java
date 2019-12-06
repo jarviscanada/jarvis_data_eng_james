@@ -2,6 +2,7 @@ package ca.jrvs.apps.grep;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class JavaGrepImp  implements JavaGrep {
@@ -26,7 +27,7 @@ public class JavaGrepImp  implements JavaGrep {
             ex.printStackTrace();
         }
     }
-
+    HashMap
     @Override
     public void process() throws IOException {
 
