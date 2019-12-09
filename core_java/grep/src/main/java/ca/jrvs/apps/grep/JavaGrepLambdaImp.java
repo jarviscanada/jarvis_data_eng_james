@@ -1,9 +1,10 @@
 package ca.jrvs.apps.grep;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.util.ArrayList;
-import java.io.p;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -51,11 +52,15 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     @Override
     public List<File> listFiles(String rootDir) {
 
-            List<File> result = walk(Paths.get(rootDir)).filter(Files::isDirectory)
-                    .map(x -> new File(x.toString()) ).collect(Collectors.toList());
-
-            result.forEach(System.out::println);
-
+        List<File> result = new ArrayList<>();
+        try {
+           result = Files.walk(Paths.get(rootDir)).map(Path::toFile).filter(File::isFile)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        return result;
 
     }
 }
