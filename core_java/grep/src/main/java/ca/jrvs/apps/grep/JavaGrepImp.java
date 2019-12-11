@@ -10,7 +10,6 @@ public class JavaGrepImp  implements JavaGrep {
     private String regex;
     private String rootPath;
     private String outFile;
-    private List<File> list_files = new ArrayList<>();
 
     public static void main(String[] args) {
         if (args.length != 3) {
@@ -27,7 +26,6 @@ public class JavaGrepImp  implements JavaGrep {
             ex.printStackTrace();
         }
     }
-    HashMap
     @Override
     public void process() throws IOException {
 
@@ -59,18 +57,21 @@ public class JavaGrepImp  implements JavaGrep {
         //if the dir is empty return null
         if (files == null) return null;
 
+        List<File> result = new ArrayList<>();
+
         //Traverse through the files including sub-_directory
         for (File i : files) {
             //if is file add to the list, else is a directory recursion
             if (i.isFile()) {
-                list_files.add(i);
+                result.add(i);
             } else {
                 //recursion
-                this.listFiles(i.getAbsolutePath());
+                List<File> tmp = this.listFiles(i.getAbsolutePath());
+                result.addAll(tmp);
             }
         }
 
-        return list_files;
+        return result;
     }
 
     @Override
