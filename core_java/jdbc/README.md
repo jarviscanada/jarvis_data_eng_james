@@ -7,6 +7,9 @@ read, update and delete in PostgreSQL RDBMS.
 # ER Diagram
 ![ER_Diagram](src/main/resources/ER_Diagram.png)
 
+# Architecture Diagram
+![Flow_Diagram](src/main/resources/flow_diagram.png)
+
 # Design Patterns
 Data Access Object Pattern or DAO pattern is used in the application, which separate low
 level data accessing API or operations from high level business services. Create an
