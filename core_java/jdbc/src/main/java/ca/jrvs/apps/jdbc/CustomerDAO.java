@@ -25,6 +25,11 @@ public class CustomerDAO extends DataAccessObject<Customer> {
     private static final String DELETE = "DELETE FROM customer WHERE customer_id = ?";
 
     @Override
+    /**
+     * Find customer with given ID
+     * param:Customer-id
+     * return: Customer object
+     */
     public Customer findById(long id) {
         Customer customer = new Customer();
         try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);){
@@ -54,6 +59,11 @@ public class CustomerDAO extends DataAccessObject<Customer> {
     }
 
     @Override
+    /**
+     * Update the given custmoer in RDBMS
+     * param:Customer-object
+     * return: Customer object
+     */
     public Customer update(Customer dto) {
         Customer customer = null;
         try{
@@ -89,6 +99,11 @@ public class CustomerDAO extends DataAccessObject<Customer> {
     }
 
     @Override
+    /**
+     * Create a customer with given info
+     * param:Customer object
+     * return: Customer object
+     */
     public Customer create(Customer dto) {
         try(PreparedStatement statement = this.connection.prepareStatement(INSERT);){
             statement.setString(1, dto.getFirstName());
@@ -109,6 +124,11 @@ public class CustomerDAO extends DataAccessObject<Customer> {
     }
 
     @Override
+    /**
+     * Remove customer with given ID
+     * param:Customer-id
+     * return: void
+     */
     public void delete(long id) {
         try(PreparedStatement statement = this.connection.prepareStatement(DELETE);){
             statement.setLong(1, id);

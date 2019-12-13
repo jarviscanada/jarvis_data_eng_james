@@ -25,6 +25,11 @@ public class OrderDAO extends DataAccessObject<Order> {
     }
 
     @Override
+    /**
+     * Find order with given ID
+     * param:order-id
+     * return: Order object
+     */
     public Order findById(long id) {
         Order order = new Order();
         try(PreparedStatement statement = this.connection.prepareStatement(GET_BY_ID);){
