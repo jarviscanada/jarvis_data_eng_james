@@ -1,4 +1,4 @@
-package ca.jrvs.apps.twitter;
+package ca.jrvs.apps.twitter.example;
 
 import com.google.gdata.util.common.base.PercentEscaper;
 import oauth.signpost.OAuthConsumer;
@@ -10,6 +10,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
+import java.awt.*;
 import java.util.Arrays;
 
 public class TwitterApiTest {
