@@ -43,7 +43,6 @@ public class TwitterServiceIntTest {
             Double lon = -118.0;
             Double lat = 34.0;
             Tweet postTweet = TweetUtil.buildTweet(text,lon,lat);
-            System.out.println(JsonUtil.toPrettyJson(postTweet));
 
             Tweet tweet = twitterService.postTweet(postTweet);
 
