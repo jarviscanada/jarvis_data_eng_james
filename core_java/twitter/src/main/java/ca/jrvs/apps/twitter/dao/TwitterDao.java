@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 
 public class TwitterDao implements CrdDao<Tweet, String> {
 
@@ -67,7 +68,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         }
 
         //execute http response
-        HttpResponse response = httpHelper.httpPost(uri);
+        HttpResponse response = httpHelper.httpGet(uri);
 
         //Validate response and deserialize response to Tweet object
         return parseResponseBody(response,HTTP_OK);
@@ -108,14 +109,15 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         uri.append(POST_PATH);
         uri.append(QUERY_SYM);
         //add text
-        uri.append(AMPERSAND);
         uri.append("status");
         uri.append(EQUAL);
-        uri.append(text);
+        uri.append(URLEncoder.encode(text,"UTF-8"));
         //add coordinates
+        uri.append(AMPERSAND);
         uri.append("long");
         uri.append(EQUAL);
         uri.append(lon);
+        uri.append(AMPERSAND);
         uri.append("lat");
         uri.append(EQUAL);
         uri.append(lat);
@@ -136,7 +138,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         uri.append(SHOW_PATH);
         uri.append(QUERY_SYM);
         //add text
-        uri.append(AMPERSAND);
         uri.append("id");
         uri.append(EQUAL);
         uri.append(s);
@@ -195,7 +196,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
         //deserialize JSON string ti Tweet object
         try {
-            tweet = JsonUtil.toObectFromJson(jsonStr,Tweet.class);
+            tweet = JsonUtil.toObjectFromJson(jsonStr,Tweet.class);
         } catch (IOException e){
             throw new RuntimeException("Unable to convert JSON str to Object", e);
         }

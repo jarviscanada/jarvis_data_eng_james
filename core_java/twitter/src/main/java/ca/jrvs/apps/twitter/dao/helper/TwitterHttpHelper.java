@@ -43,7 +43,7 @@ public class TwitterHttpHelper implements HttpHelper {
         consumer.setTokenWithSecret(accessToken,tokenSecret);
         
         //setup a httpclient
-        httpClient = new HttpClientBuilder.create().build();
+        httpClient = HttpClientBuilder.create().build();
     }
 
     @Override

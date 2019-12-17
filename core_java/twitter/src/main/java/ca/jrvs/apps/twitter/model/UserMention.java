@@ -7,8 +7,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"name", "indices", "screen_name", "id", "id_str"})
-
 public class UserMention {
 
     @JsonProperty("name")
