@@ -35,7 +35,7 @@ public class JsonUtil {
      * @param object
      * @return
      */
-    public static String toPrettyJson (Object object) {
+    public static String toPrettyJson (Object object) throws JsonProcessingException{
         try {
             return toJson(object, true, false);
         } catch (JsonProcessingException e) {

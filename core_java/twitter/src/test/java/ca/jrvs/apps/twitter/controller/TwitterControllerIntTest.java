@@ -1,9 +1,12 @@
-package ca.jrvs.apps.twitter.service;
+package ca.jrvs.apps.twitter.controller;
 
+import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.dao.TwitterDao;
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.service.Service;
+import ca.jrvs.apps.twitter.service.TwitterService;
 import ca.jrvs.apps.twitter.util.JsonUtil;
 import ca.jrvs.apps.twitter.util.TweetUtil;
 import org.junit.After;
@@ -15,9 +18,9 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class TwitterServiceIntTest {
+public class TwitterControllerIntTest {
 
-    private TwitterService twitterService;
+    private TwitterController controller;
     private List<Tweet> tweets;
 
     @Before
@@ -33,18 +36,23 @@ public class TwitterServiceIntTest {
         HttpHelper httpHelper = new TwitterHttpHelper(consumerKey,consumerSecret,accessToken,tokenSecret);
 
         //pass dependency
-        TwitterDao dao = new TwitterDao(httpHelper);
-        this.twitterService = new TwitterService(dao);
+        CrdDao dao = new TwitterDao(httpHelper);
+        Service twitterService = new TwitterService(dao);
+        this.controller = new TwitterController(twitterService);
         tweets = new ArrayList<>();
 
         //create tweets
         for(int i = 0; i < 4; i++) {
-            String text = "Test Twitter Service at" + System.currentTimeMillis();
+            String text = "Test Twitter Controller at" + System.currentTimeMillis();
             Double lon = -118.0;
             Double lat = 34.0;
             Tweet postTweet = TweetUtil.buildTweet(text,lon,lat);
 
-            Tweet tweet = twitterService.postTweet(postTweet);
+            String[] args = new String[3];
+            args[0] = "POST";
+            args[1] = text;
+            args[2] = lat + ":" + lon;
+            Tweet tweet = controller.postTweet(args);
 
             assertEquals(text, tweet.getText());
             assertNotNull(tweet.getCooridinates());
@@ -60,7 +68,10 @@ public class TwitterServiceIntTest {
     public void showTweet() {
         for (Tweet post : tweets) {
             long id = post.getId();
-            Tweet tweet = twitterService.showTweet(Long.toString(id), null);
+            String[] args = new String[2];
+            args[0] = "SHOW";
+            args[1] = Long.toString(id);
+            Tweet tweet = controller.showTweet(args);
 
             assertEquals(post.getText(), tweet.getText());
             assertNotNull(tweet.getCooridinates());
@@ -72,15 +83,20 @@ public class TwitterServiceIntTest {
     }
 
     @After
-    public void deleteTweets() {
+    public void deleteTweet() {
         String[] ids = new String[4] ;
         int index = 0;
         for (Tweet post : tweets) {
             ids[index] = Long.toString(post.getId());
             index++;
         }
-        List<Tweet> deleted = twitterService.deleteTweets(ids);
+
+        String[] args = new String[2];
+        args[0] = "DELETE";
+        args[1] = String.join(",", ids);
+        List<Tweet> deleted = controller.deleteTweet(args);
 
         assertNotNull(deleted);
+
     }
 }
