@@ -58,11 +58,11 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     }
 
     @Override
-    public Tweet findById(String s) {
+    public Tweet findById(String id) {
         //construct URI
         URI uri;
         try {
-            uri = getShowUri(s);
+            uri = getShowUri(id);
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Fail to construct URI", e);
         }
@@ -75,11 +75,11 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     }
 
     @Override
-    public Tweet deleteById(String s) {
+    public Tweet deleteById(String id) {
         //construct URI
         URI uri;
         try {
-            uri = getDeleteUri(s);
+            uri = getDeleteUri(id);
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Fail to construct URI", e);
         }
@@ -127,11 +127,11 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     /**
      * create show URI
-     * @param s
+     * @param id
      * @return
      * @throws URISyntaxException
      */
-    private URI getShowUri(String s) throws URISyntaxException {
+    private URI getShowUri(String id) throws URISyntaxException {
         //construct the URI
         StringBuilder uri = new StringBuilder();
         uri.append(API_BASE_URI);
@@ -140,24 +140,24 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         //add text
         uri.append("id");
         uri.append(EQUAL);
-        uri.append(s);
+        uri.append(id);
 
         return new URI(uri.toString());
     }
 
     /**
      * create delete URI
-     * @param s
+     * @param id
      * @return
      * @throws URISyntaxException
      */
-    private URI getDeleteUri(String s) throws URISyntaxException {
+    private URI getDeleteUri(String id) throws URISyntaxException {
         //construct the URI
         StringBuilder uri = new StringBuilder();
         uri.append(API_BASE_URI);
         uri.append(DELETE_PATH);
         uri.append("/");
-        uri.append(s);
+        uri.append(id);
         uri.append(".json");
 
         return new URI(uri.toString());
