@@ -9,13 +9,16 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
 import sun.net.www.http.HttpClient;
 import org.apache.http.impl.client.CloseableHttpClient;
 
 import java.io.IOException;
 import java.net.URI;
 
+@Component
 public class TwitterHttpHelper implements HttpHelper {
 
     /**
@@ -43,6 +46,17 @@ public class TwitterHttpHelper implements HttpHelper {
         consumer.setTokenWithSecret(accessToken,tokenSecret);
         
         //setup a httpclient
+        httpClient = HttpClientBuilder.create().build();
+    }
+
+    public TwitterHttpHelper() {
+        String consumerKey = System.getenv("consumerKey");
+        String consumerSecret = System.getenv("consumerSecret");
+        String accessToken = System.getenv("accessToken");
+        String tokenSecret = System.getenv("tokenSecret");
+        consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
+        consumer.setTokenWithSecret(accessToken, tokenSecret);
+
         httpClient = HttpClientBuilder.create().build();
     }
 

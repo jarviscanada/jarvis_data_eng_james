@@ -6,6 +6,7 @@ import ca.jrvs.apps.twitter.util.JsonUtil;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.print.URIException;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
+@Repository
 public class TwitterDao implements CrdDao<Tweet, String> {
 
     //URI constants
@@ -168,7 +170,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
      * @param expectedStatusCode
      * @return
      */
-    private Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode) {
+    protected Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode) {
         Tweet tweet;
 
         //check response status
