@@ -8,16 +8,16 @@ the Tweet returned was process using DAO design pattern.
  
  ![UML_diagram](src/main/resources/UML.png)
 
-###TwitterHttpHelper
+`TwitterHttpHelper`
 Implements HttpHelper interface, connects the application with Twitter.
 
-###TwitterDao
+`TwitterDao`
 Implements CrdDao class, create URI with Tweet objects.
 
-###TwitterService
+`TwitterService`
 Implements Service class, validate inputs for the Tweet
 
-###TwitterController
+`TwitterController`
 Implements Controller class, validate command line inputs
 
 ###TwitterCLIApp
