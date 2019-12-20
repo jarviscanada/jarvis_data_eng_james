@@ -6,7 +6,7 @@ the Tweet returned was process using DAO design pattern.
 # Design
  UML diagram
  
- ![UML_diagram] (src/main/resources/UML.png)
+ ![UML_diagram](src/main/resources/UML.png)
 ###TwitterHttpHelper
 Implements HttpHelper interface, connects the application with Twitter.
 ###TwitterDao
