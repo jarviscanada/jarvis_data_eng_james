@@ -52,7 +52,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
             throw new IllegalArgumentException("Invaild tweet input", e);
         }
 
-        //execute http response
         HttpResponse response = httpHelper.httpPost(uri);
 
         //Validate response and deserialize response to Tweet object
@@ -69,7 +68,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
             throw new IllegalArgumentException("Fail to construct URI", e);
         }
 
-        //execute http response
         HttpResponse response = httpHelper.httpGet(uri);
 
         //Validate response and deserialize response to Tweet object
@@ -86,7 +84,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
             throw new IllegalArgumentException("Fail to construct URI", e);
         }
 
-        //execute http response
         HttpResponse response = httpHelper.httpPost(uri);
 
         //Validate response and deserialize response to Tweet object

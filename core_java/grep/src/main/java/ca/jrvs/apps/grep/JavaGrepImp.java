@@ -36,25 +36,20 @@ public class JavaGrepImp  implements JavaGrep {
             List<String> temp_string = this.readLines(file);
 
             for(String i : temp_string) {
-                //check if match
                 if (containsPattern(i))
                     matched.add(i);
             }
         }
 
-        //write to file
         this.writeToFile(matched);
     }
 
     @Override
     public List<File> listFiles(String rootDir) {
 
-        //Directory of the given path
         File dir = new File(rootDir);
-        //get the name of the file contain in the directory
         File[] files = dir.listFiles();
 
-        //if the dir is empty return null
         if (files == null) return null;
 
         List<File> result = new ArrayList<>();
@@ -79,7 +74,6 @@ public class JavaGrepImp  implements JavaGrep {
 
         List<String> result = new ArrayList<>();
 
-        //read from file
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader(inputFile));
@@ -105,7 +99,6 @@ public class JavaGrepImp  implements JavaGrep {
     @Override
     public void writeToFile(List<String> lines) throws IOException {
 
-        //write to file
         BufferedWriter writer;
         try {
             File file = new File(outFile);

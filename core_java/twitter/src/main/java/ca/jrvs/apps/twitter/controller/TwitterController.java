@@ -23,12 +23,10 @@ public class TwitterController implements Controller {
     @Override
     public Tweet postTweet(String[] args) {
 
-        //check if the args have the correct length
         if (args.length != 3) {
             throw new IllegalArgumentException("Invalid Post Arguments");
         }
 
-        //get post info
         String text = args[1];
         String[] cooridinates = args[2].split(COORD_SEP);
 
@@ -52,13 +50,11 @@ public class TwitterController implements Controller {
 
     @Override
     public Tweet showTweet(String[] args) {
-        //check if the args have the correct length
         if (args.length != 2) {
             throw new IllegalArgumentException("Invalid Show Arguments");
         }
 
         String id = args[1];
-        //check if Id is empty
         if (id.isEmpty()) {
             throw new IllegalArgumentException("Empty ID field");
         }
@@ -68,7 +64,6 @@ public class TwitterController implements Controller {
 
     @Override
     public List<Tweet> deleteTweet(String[] args) {
-        //check if the args have the correct length
         if (args.length != 2) {
             throw new IllegalArgumentException("Invalid Delete Arguments");
         }
@@ -78,7 +73,6 @@ public class TwitterController implements Controller {
         if (ids.length == 0) {
             throw new IllegalArgumentException("Empty ID field");
         }
-        //check if Id is empty
         for (String id : ids ) {
             if (id.isEmpty()) {
                 throw new IllegalArgumentException("Empty ID field");

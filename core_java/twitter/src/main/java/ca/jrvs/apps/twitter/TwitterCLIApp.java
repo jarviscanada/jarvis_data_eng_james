@@ -26,16 +26,13 @@ public class TwitterCLIApp {
 
     public static void main(String[] args) {
 
-        //get key from env
         String consumerKey = System.getenv("consumerKey");
         String consumerSecret = System.getenv("consumerSecret");
         String accessToken = System.getenv("accessToken");
         String tokenSecret = System.getenv("tokenSecret");
 
-        //setup dependency
         HttpHelper httpHelper = new TwitterHttpHelper(consumerKey,consumerSecret,accessToken,tokenSecret);
 
-        //pass dependency
         CrdDao dao = new TwitterDao(httpHelper);
         Service twitterService = new TwitterService(dao);
         Controller controller = new TwitterController(twitterService);

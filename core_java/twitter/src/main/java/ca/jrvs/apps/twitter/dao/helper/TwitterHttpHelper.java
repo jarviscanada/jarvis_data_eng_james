@@ -41,11 +41,9 @@ public class TwitterHttpHelper implements HttpHelper {
         if(consumerKey == null || consumerSecret == null || accessToken == null || tokenSecret == null)
             throw new RuntimeException("Unable to find tokens or keys");
         
-        //setup OAuth
         consumer = new CommonsHttpOAuthConsumer(consumerKey,consumerSecret);
         consumer.setTokenWithSecret(accessToken,tokenSecret);
         
-        //setup a httpclient
         httpClient = HttpClientBuilder.create().build();
     }
 

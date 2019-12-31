@@ -1,8 +1,8 @@
 # Introduction
 The Java Twitter App is an command line application that allows user to Create, Read
-and Delete Tweets. It connects to Twitter API through OAuth and 
-perform part of CRUD implementation. Post and Get request was used, and
-the Tweet returned was process using DAO design pattern.
+and Delete Tweets. It connects to Twitter REST API using authentication tool OAuth and 
+perform part of CRUD implementation. Post and Get request were used, and
+the returned tweets were process using DAO design pattern.
 # Design
  UML diagram
  
@@ -20,19 +20,22 @@ Implements Service class, validate inputs for the Tweet
 `TwitterController`
 Implements Controller class, validate command line inputs
 
-###TwitterCLIApp
+`TwitterCLIApp`
 Gathers the input, and invokes method form TwitterController
 # Quick Start
 Before running the application you need to set up the following 
 environmental variables `consumerKey`, `consumerSecret`, `accessToken`
-, `TokenSecret`. 
+, `TokenSecret`. Details to obtain these variable can be found
+[here](https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a).
+You can add environmental variables by `export` one at a time in the terminal.
 
 Setup Maven: Go to Twitter directory and run `mvn package`
 
 Run Application: Go to Twitter directory and run `java -jar target/
 java_apps-1.0.0-SNAPSHOT.jar [action] [option]`
 
-###action
+**Action:**
+
 Post:
 `TwitterCLIApp post "text" "Longitude:Latitude"`
 
