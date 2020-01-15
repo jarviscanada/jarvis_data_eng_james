@@ -1,10 +1,11 @@
 package ca.jrvs.apps.trading;
 
-class HelloWorld {
+import org.springframework.boot.CommandLineRunner;
 
-  // Your program begins with a call to main().
-  // Prints "Hello, World" to the terminal window.
-  public static void main(String args[]) {
-    System.out.println("Hello, World");
+public class Application implements CommandLineRunner {
+
+  @Override
+  public void run(String... args) throws Exception {
+
   }
 }
