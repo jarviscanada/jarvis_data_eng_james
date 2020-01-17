@@ -49,7 +49,7 @@ CREATE TABLE public.security_order
   notes      varchar NULL,
   CONSTRAINT security_order_pk PRIMARY KEY (id),
   CONSTRAINT security_order_account_fk FOREIGN KEY (account_id) REFERENCES account (id),
-  CONSTRAINT security_order_quote_fk FOREIGN KEY (ticker) REFERENCES quote (ticker)
+  CONSTRAINT security_order_quote_fk FOREIGN KEY (ticker) REFERENCES quote (ticker)w
 );
 
 
