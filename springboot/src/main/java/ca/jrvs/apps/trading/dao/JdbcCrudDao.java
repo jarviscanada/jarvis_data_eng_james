@@ -50,7 +50,9 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
     }
 
     /**
-     * helper method that saves one quote
+     * Helper function to add one quote
+     * @param entity
+     * @param <S>
      */
     private <S extends T> void addOne(S entity) {
         SqlParameterSource parameterSource = new BeanPropertySqlParameterSource(entity);
@@ -60,7 +62,9 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
     }
 
     /**
-     * helper method that updates one quote
+     * helper function to update a quote
+     * @param entity
+     * @return
      */
     abstract public int updateOne(T entity);
 

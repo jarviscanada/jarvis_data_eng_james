@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@Api(value = "quote", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Controller
 @RequestMapping("/quote")
 public class QuoteController {
@@ -27,8 +26,7 @@ public class QuoteController {
         this.quoteService = quoteService;
     }
 
-    //@ApiOperation(value = "Show iexQuote", notes = "Show iexQuote for a given ticker/symbol")
-    //@ApiResponses(value = {@ApiResponse(code = 404, message = "ticker is not found")})
+
     @GetMapping(path = "/iex/ticker/{ticker}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -50,7 +48,6 @@ public class QuoteController {
         }
     }
 
-    //@ApiOperation(value = "Update a given quote in the quote table",notes = "Manually update a quote in the quote table using IEX market data")
     @PutMapping(path = "/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody

@@ -1,4 +1,4 @@
-#Springboot Trading REST API
+# Springboot Trading REST API
  * [Introduction](#introduction)
  * [Quick Start](#quick-start)
  * [Architecture](#architecture)
@@ -16,7 +16,7 @@ Maven. The target user for this application would be mobile or front-end
 developer.
 
 ## Quick Start
-####Prequiresites
+#### Prequiresites
 Requirements to run this application:
 - System: CentOS 7
 - Java Version: 8 or higher
@@ -24,7 +24,7 @@ Requirements to run this application:
 - Maven
 - IEX account 
 
-####Docker Setup
+#### Docker Setup
 This application contains two docker containers `trading-psql` and `trading-app`. In order to run the application deployment of Docker is required. Follow the script bellow to deploy Docker.
 ```
 #run Docker

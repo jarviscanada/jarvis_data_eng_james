@@ -73,6 +73,11 @@ public class AccountDao extends JdbcCrudDao<Account> {
         throw new UnsupportedOperationException("Not implemented");
     }
 
+    /**
+     * Find the list of account that is related to the given ID
+     * @param Id treader
+     * @return list of account
+     */
     public List<Account> findByTraderId(Integer Id) {
         String selectSql = "SELECT * FROM " + getTableName() + " WHERE trader_id =?";
         return getJdbcTemplate().query(selectSql, BeanPropertyRowMapper.newInstance(Account.class), Id);
