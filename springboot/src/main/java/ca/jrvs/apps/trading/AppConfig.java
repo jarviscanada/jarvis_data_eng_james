@@ -26,7 +26,6 @@ public class AppConfig {
 
     @Bean
     public DataSource dataSource() {
-        System.out.println("Creating apacheDataSource");
         String url = System.getenv("PSQL_URL");
         String user = System.getenv("PSQL_USER");
         String password = System.getenv("PSQL_PASSWORD");
