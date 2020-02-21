@@ -130,7 +130,7 @@ public class MarketDataDao implements CrudRepository<IexQuote,String> {
                 IexQuote iexQuote = objectMapper.readValue(quote,IexQuote.class);
                 quotes.add(iexQuote);
            } catch (IOException e) {
-                throw new RuntimeException("Failed to pasre JSON string",e);
+                throw new DataRetrievalFailureException("Failed to parse JSON string");
             }
         }
         return quotes;
@@ -193,7 +193,7 @@ public class MarketDataDao implements CrudRepository<IexQuote,String> {
         try {
             jsonStr = EntityUtils.toString(response.getEntity());
         } catch (IOException e) {
-            throw new RuntimeException("FAiled to convert entity to String", e);
+            throw new DataRetrievalFailureException("FAiled to convert entity to String");
         }
 
         return Optional.of(jsonStr);
