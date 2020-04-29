@@ -1,7 +1,7 @@
 Table of contents
 * [Introduction](#Introduction)
 * [Hadoop Cluster](#hadoop-cluster)
-* [Docker Deployment](#hive-project)
+* [Hive Project](#hive-project)
 * [Improvements](#improvements)
 
 # Introduction
@@ -14,6 +14,7 @@ Google Cloud Platform is used to build the hadoop cluster, which contain one mas
 # Hadoop Cluster
 The project uses a 3 node cluster, 1master and 2 workers. The project is provisioned and hosted on Google Cloud Platform.
 ![Diagram](./resource/hadoop_cluster_diagram.png)
+
 ##Big Data Tools
 - **HDFS (Hadoop Distributed File System):** is the primary data storage system that used by Hadoop applications. HDFS consists of one NameNode and multiple DataNodes.
 	- **NameNode (The Master) :** is the master daemon that maintains and manages the data block present in the DataNodes. 
@@ -33,7 +34,7 @@ The project uses a 3 node cluster, 1master and 2 workers. The project is provisi
 # Hive Project
 This Hive project is an introduction to how Hive and Zeppelin Notebook work. There are three main parts within this project: loading data into HDFS, optimization of queries and compare performance between hive and spark. The screen-shot below having detailed description and implementation of each task.
 ![Diagram](./resource/screenshot_1.png)
-![Diagram](./resource/screenshot_2.png)
+![Diagram](./resource/screeshot_2.png)
 
 # Improvements
 - Explore bucketing, possibly with a larger cluster.
