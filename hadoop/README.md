@@ -15,7 +15,7 @@ Google Cloud Platform is used to build the hadoop cluster, which contain one mas
 The project uses a 3 node cluster, 1master and 2 workers. The project is provisioned and hosted on Google Cloud Platform.
 ![Diagram](./resource/hadoop_cluster_diagram.png)
 
-##Big Data Tools
+## Big Data Tools
 - **HDFS (Hadoop Distributed File System):** is the primary data storage system that used by Hadoop applications. HDFS consists of one NameNode and multiple DataNodes.
 	- **NameNode (The Master) :** is the master daemon that maintains and manages the data block present in the DataNodes. 
 	- **DataNode (The Worker) :** is the place where actual data is stored. They will execute tasks given by the NameNode and send back the result. By default, each of the blocks gets replicated three times. If any of those replicas gets corrupted, there are others to restore it.
