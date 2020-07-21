@@ -37,7 +37,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_james](htt
 **University of Toronto (2013-2019)**, Honours Bachelor of Science with Distinction (B.Sc.), Computer Science
 
 
-- **Course Scheduling Website:** Developed  a website with algorithms that generate conflict-free course schedules based on user input. Coded front-end in HTML, CSS, JavaScript, JQuery, and Ajax; with back-end in Node.js server and SQLite database.
+- **Course Scheduling Website:** Developed  a website with algorithms that generate conflict-free course schedules based on user input. Coded front-end in HTML, CSS, JavaScript, JQuery, and Ajax; with back-end in Node.js server and MongoDB database.
 
 - **Face-tracking Cursor:** Designed and implemented an app that allows users to control the cursor using a webcam. Coded in Python with OpenCV & PyAutoGUI to calibrate face and track real-time nose position to move the cursor. Built a chrome extension that introduces new on-screen functions for better accessibility.
 
